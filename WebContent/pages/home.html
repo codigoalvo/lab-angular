@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="pt-br" ng-app=anguLab>
+
+	<head>
+		<meta charset="utf-8">
+		<title>lab-angular</title>		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+	</head>
+
+	<body>
+		<main ng-controller="HomeController as homeCtrl">
+			<md-button class="md-raised md-primary" ng-click="homeCtrl.teste()" type="button">Material</md-button>
+			<button type="button" ng-click="homeCtrl.teste()">Testar</button>
+		</main>
+
+		<!-- default scripts -->
+		<script src="../app/lib/jquery-2.min.js"></script>
+		<script src="../app/app.js"></script>
+		<!--  -->
+		<script src="home.js"></script>
+	</body>
+</html>
