@@ -3,7 +3,7 @@ app.controller("HomeController", [
 		function($http, $scope) {
 			console.log('HomeController init')
 			var homeCtrl = this;
-
+			homeCtrl.dataTeste = undefined;
 
 			this.teste = function() {
 				console.log('teste function');
