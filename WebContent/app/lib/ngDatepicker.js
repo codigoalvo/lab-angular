@@ -1,6 +1,6 @@
 angular.module('jkuri.datepicker', [])
 
-.directive('ngDatepicker', ['$document', function($document) {
+.directive('ngDatepicker', ['$document', '$sce', function($document, $sce) {
 	'use strict';
 
 	var setScopeValues = function (scope, attrs) {
@@ -9,11 +9,11 @@ angular.module('jkuri.datepicker', [])
 		scope.locale = attrs.locale || 'en';
 		scope.firstWeekDaySunday = scope.$eval(attrs.firstWeekDaySunday) || false; 
 		scope.placeholder = attrs.placeholder || '';
+		scope.iPrevYear =	attrs.iPrevYear || '<i class="prev-month-btn">&#124;&lt;</i>';
+		scope.iNextYear = attrs.iNextYear || '<i class="next-year-btn">&gt;&#124;</i>';
+		scope.iPrevMonth = attrs.iPrevMonth || '<i class="prev-month-btn">&lt;</i>';
+		scope.iNextMonth = attrs.iNextMonth || '<i class="next-month-btn">&gt;</i>';
 		/*
-		scope.iPrevYear =	attrs.iPrevYear || '<i class="prev-year-btn" style="display: inline;">|<</i>';
-		scope.iPrevMonth = attrs.iPrevMonth || '<i class="prev-month-btn" style="display: inline;"><</i>';
-		scope.iNextYear = attrs.iNextYear || '<i class="next-year-btn" style="display: inline;">>|</i>';
-		scope.iNextMonth = attrs.iNextMonth || '<i class="next-month-btn" style="display: inline;">></i>';
 		scope.iButton = '<i class="material-icons">date_range</i>';
 		*/
 	};
@@ -22,10 +22,10 @@ angular.module('jkuri.datepicker', [])
 		restrict: 'EA',
 		require: '?ngModel',
 		scope: {
-			iPrevYear : "=",
-			iPrevMonth : "=",
-			iNextYear : "=",
-			iNextMonth : "=",
+			iPrevYear : "@",
+			iPrevMonth : "@",
+			iNextYear : "@",
+			iNextMonth : "@",
 		},
 		link: function (scope, element, attrs, ngModel) {
 			setScopeValues(scope, attrs);
@@ -161,20 +161,16 @@ angular.module('jkuri.datepicker', [])
 		'<div class="ng-datepicker" ng-show="calendarOpened">' +
 		'  <div class="controls">' +
 		'    <div class="left" style="white-space: nowrap;">' +
-		'      <div style="display:inline;" ng-click="prevYear()">' +
-		'{{iPrevYear}}' +
+		'      <div style="display:inline;" ng-click="prevYear()" ng-bind-html="iPrevYear">' +
 		'      </div>' +
-		'      <div style="display:inline;" ng-click="prevMonth()">' +
-		'{{iPrevMonth}}' +
+		'      <div style="display:inline;" ng-click="prevMonth()" ng-bind-html="iPrevMonth">' +
 		'      </div>' +
 		'    </div>' +
 		'    <span class="date" ng-bind="dateValue"></span>' +
 		'    <div class="right" style="white-space: nowrap;">' +
-		'      <div style="display:inline;" ng-click="nextMonth()">' +
-		'{{iNextMonth}}' +
+		'      <div style="display:inline;" ng-click="nextMonth()" ng-bind-html="iNextMonth">' +
 		'      </div>' +
-		'      <div style="display:inline;" ng-click="nextYear()">' +
-		'{{iNextYear}}' +
+		'      <div style="display:inline;" ng-click="nextYear()" ng-bind-html="iNextYear">' +
 		'      </div>' +
 		'    </div>' +
 		'  </div>' +

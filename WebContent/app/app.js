@@ -15,9 +15,11 @@ body('/fonts/material/material-icons.css');
 
 body('/lib/moment-with-locales.min.js');
 
-body('/lib/ngDatepicker.js');
 body('/lib/ngDatepicker.css');
+body('/lib/ngDatepicker.js');
 /*  */
+
+body('/app.css');
 
 var app = angular.module('anguLab', ['ngAnimate', 'ngMaterial', 'ngSanitize', 'jkuri.datepicker'],
 	function($locationProvider) {

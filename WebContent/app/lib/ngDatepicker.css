@@ -1,3 +1,7 @@
+ng-datepicker {
+	display: inline-block;
+}
+
 .ng-datepicker {
 	position: absolute;
 	z-index: 9999;
@@ -23,7 +27,7 @@
 }
 
 .ng-datepicker > .controls i {
-	font-size: 25px;
+	font-size: 16px;
 	cursor: pointer;
 }
 

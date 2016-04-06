@@ -15,8 +15,14 @@
 			<p>{{homeCtrl.response}}</p>
 			<h3>{{result}}</h3>
 			<p>------------------------------</p>
-			<ng-datepicker locale="pt-br" ng-model="homeCtrl.dataTeste" style="display: inline-block;"
-				i-prev-year="A">
+			<input type="text"/>
+			<ng-datepicker locale="pt-br" ng-model="homeCtrl.dataTeste">
+			<!--
+				i-prev-year='<i class="material-icons prev-year-btn nav-button">first_page</i>'
+				i-next-year='<i class="material-icons next-year-btn nav-button">last_page</i>'
+				i-prev-month='<i class="material-icons prev-month-btn nav-button">chevron_left</i>'
+				i-next-month='<i class="material-icons next-month-btn nav-button">chevron_right</i>'
+			 -->
 			</ng-datepicker>
 			<h2>{{homeCtrl.dataTeste}}</h2>
 		</main>
